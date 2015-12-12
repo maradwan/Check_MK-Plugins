@@ -1,0 +1,28 @@
+# the inventory function
+def inventory_onlineboxes(info):
+    inventory = []
+    inventory.append ( ("", "", None) )
+    return inventory
+
+
+# the check function
+def check_onlineboxes(item, params, info):
+    curpool = info[0];
+    boxes = int (curpool[0])
+    perfdata = [ ("Boxes", boxes) ]
+    if boxes > 630:
+        return (0, "OK - " + curpool[0] + ' Boxes in use', perfdata )
+    else:
+        if boxes > 560:
+            return (1, "WARNING - " + curpool[0] + ' Boxes in use', perfdata )
+        else:
+            return (2, "CRITICAL - " + curpool[0] + ' Boxes in use', perfdata )
+
+
+# declare the check to Check_MK
+check_info["onlineboxes"] = {
+    "check_function"         : check_onlineboxes,
+    "inventory_function"     : inventory_onlineboxes,
+    "service_description"    : "Online Boxes Connected",
+    "has_perfdata"           : True,
+}
