@@ -1,5 +1,6 @@
 # Check_MK-Plugins-
 To create custom plugins for check_mk , You need the following:
+![](screenshot.png)
 
 1-Check_MK (Server Side):
 a-Go to directory /opt/omd/versions/default/share/check_mk/checks
